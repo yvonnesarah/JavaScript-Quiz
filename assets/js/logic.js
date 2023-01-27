@@ -36,7 +36,7 @@ var currentQuestion = questions[currentJavascriptQuestion];
 var questiontitle = document.getElementById("question-title");
 questiontitle.textContent = currentQuestion.title;
 questiontitle.setAttribute("class","text-center");
-questiontitle.style.fontSize= "110%";
+questiontitle.style.fontSize= "140%";
   
 // hide any old question choices from previous question
 choicesOptions.innerHTML = "";
