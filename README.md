@@ -29,6 +29,20 @@ Application can be viewed here:
 
 * [Repository](https://github.com/yvonnesarah/JavaScript-Quiz)
 
+
+## Screenshot(S)
+Start Screen
+![Screenshot](assets/images/start-screen.png "Start Screen of JavaScript Quiz")
+
+Example Question
+![Screenshot](assets/images/example-question.png "Example question in the JavaScript Quiz")
+
+End Screen
+![Screenshot](assets/images/end-screen.png "End Screen of JavaScript Quiz")
+
+Highscores
+![Screenshot](assets/images/highscores.png "Highscores page of JavaScript Quiz")
+
 ## Credit
 N/A
 
