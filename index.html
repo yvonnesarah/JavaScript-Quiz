@@ -2,22 +2,26 @@
 <html lang="en-gb">
 <head>
 <meta charset="UTF-8" />
+<!--Added meta viewport for mobile and monitor accessibility-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <title>Coding Quiz</title>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+<!--CSS Stylesheet-->
 <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 
 <body>
 <div class="javascript-quiz">
+    <!--Scores-->
 <div class="scores"><a href="highscores.html"><button>View Highscores</button></a></div>
+    <!--Timer-->
 <div class="timer"><button>Time: <span id="time">0</span></button></div>
-
+<!--Wrapper-->
 <div class="wrapper">
+    <!--Start Screen-->
 <div id="start-screen" class="start">
 <h1>JavaScript Quiz</h1>
 <br>
@@ -26,14 +30,17 @@ limit. Keep in mind that incorrect answers will penalize your
 score/time by ten seconds!
 </h4>
 <br>
+<!--Start button for the quiz-->
 <button id="start">Start Quiz</button>
 </div>
 
+<!--Questions for the quiz with options -->
 <div id="questions" class="hide">
 <h2 id="question-title"></h2>
 <div id="choices" class="choices"></div>
 </div>
 
+<!--End Screen-->
 <div id="end-screen" class="hide">
 <h2>All done!</h2>
 <p>Your final score is <span id="final-score"></span>.</p>
@@ -46,7 +53,7 @@ Enter initials: <input type="text" id="initials" max="3" />
 <div id="feedback" class="feedback hide"></div>
 </div>
 </div>
-
+<!--JavaScript-->
 <script src="./assets/js/questions.js"></script>
 <script src="./assets/js/logic.js"></script>
 
