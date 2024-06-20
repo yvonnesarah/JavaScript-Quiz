@@ -1,7 +1,10 @@
 # JavaScript-Quiz
 
-# Description
+## Description
 A timer-based quiz application having multiple choice JavaScript questions that stores high scores of multiple users using localstorage. Answering incorrectly results in penality of time.
+
+## Prerequisites
+N/A
 
 # Criteria
 * GIVEN I am taking a code quiz
@@ -16,6 +19,7 @@ A timer-based quiz application having multiple choice JavaScript questions that 
 * WHEN the game is over
 * THEN I can save my initials and score
 
+## Technologies Used
  Built with:
 * HTML
 * CSS
@@ -23,12 +27,17 @@ A timer-based quiz application having multiple choice JavaScript questions that 
 * Local Storage
 * (Bootstrap)
 
+## Installation
+N/A
+
+## Usage
+N/A
+
 ## Project Link
 Application can be viewed here: 
 * [Live](https://yvonnesarah.github.io/JavaScript-Quiz/)
 
 * [Repository](https://github.com/yvonnesarah/JavaScript-Quiz)
-
 
 ## Screenshot(S)
 Start Screen
@@ -47,4 +56,4 @@ Highscores
 N/A
 
 ## Licence
-N/A
+Please refer to the LICENSE in the repo.
