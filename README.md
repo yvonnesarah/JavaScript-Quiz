@@ -6,6 +6,12 @@ A timer-based quiz application having multiple choice JavaScript questions that 
 ## Prerequisites
 N/A
 
+## Features
+* Muliple-choice questions about JavaScript.
+* Score tracking.
+* Responsive design for mobile and desktop use.
+* Timer for each quiz session.
+
 # Criteria
 * GIVEN I am taking a code quiz
 * WHEN I click the start button
@@ -31,7 +37,10 @@ N/A
 N/A
 
 ## Usage
-N/A
+* Open the JavaScript Quiz web application in your browser.
+* Click the "Start Quiz" button to begin.
+* Read each question and select the correct answer from the multiple-choice options.
+* After completing all questions, view your score.
 
 ## Project Link
 Application can be viewed here: 
