@@ -37,7 +37,7 @@ No installation required. Simply open the application in a web browser.
 4. Correct answers add to your score; incorrect answers deduct time.
 5. When the quiz ends, enter your initials to save your score.
 
-🔗 Live Demo & Repository
+## 🔗 Live Demo & Repository
 Application can be viewed here: 
 * [Live](https://yvonnesarah.github.io/JavaScript-Quiz/)
 
