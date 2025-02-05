@@ -1,165 +1,175 @@
 // DOM elements
-var javascriptQuestions = document.querySelector("#questions");
-var timerClock = document.querySelector("#time");
-var choicesOptions = document.querySelector("#choices");
-var submitButton = document.querySelector("#submit");
-var startButton = document.querySelector("#start");
-var initialsElement = document.querySelector("#initials");
-var feedbackElement = document.querySelector("#feedback");
+var javascriptQuestions = document.querySelector("#questions"); // The div for displaying questions
+var timerClock = document.querySelector("#time"); // The timer display element
+var choicesOptions = document.querySelector("#choices"); // The container for question choices
+var submitButton = document.querySelector("#submit"); // The button to submit the score
+var startButton = document.querySelector("#start"); // The button to start the quiz
+var initialsElement = document.querySelector("#initials"); // The input field for initials
+var feedbackElement = document.querySelector("#feedback"); // The element for feedback (correct/incorrect)
 
 // JavaScript quiz state variables
-var currentJavascriptQuestion = 0;
-var time = questions.length * 10;
-var timerId;
+var currentJavascriptQuestion = 0; // Index for the current question
+var time = questions.length * 10; // Set the timer based on the number of questions (10 seconds per question)
+var timerId; // Timer ID to manage the timer
 
+// Function to start the quiz
 function startQuiz() {
-// hide the start screen
-var startScreenElement = document.getElementById("start-screen");
-startScreenElement.setAttribute("class", "hide");
+  // Hide the start screen
+  var startScreenElement = document.getElementById("start-screen");
+  startScreenElement.setAttribute("class", "hide");
 
-// un-hide the questions section
-javascriptQuestions.removeAttribute("class");
+  // Un-hide the questions section
+  javascriptQuestions.removeAttribute("class");
 
-// start the timer
- timerId = setInterval(clockTick, 1000);
+  // Start the timer
+  timerId = setInterval(clockTick, 1000);
 
-// show the starting time on the timer
-timerClock.textContent = time;
-getQuestion();
+  // Show the starting time on the timer
+  timerClock.textContent = time;
+  
+  // Load the first question
+  getQuestion();
 }
 
+// Function to load a new question
 function getQuestion() {
-// get current JavaScript question object from array
-var currentQuestion = questions[currentJavascriptQuestion];
-  
-// update title with current JavaScript question
-var questiontitle = document.getElementById("question-title");
-questiontitle.textContent = currentQuestion.title;
-questiontitle.setAttribute("class","text-center");
-questiontitle.style.fontSize= "140%";
-  
-// hide any old question choices from previous question
-choicesOptions.innerHTML = "";
+  // Get current JavaScript question object from the array
+  var currentQuestion = questions[currentJavascriptQuestion];
 
-// loop over JavaScript question choices
-currentQuestion.choices.forEach(function(choice) {
-// create new button for each choice with bootstrap 
-var choicesOptionsElement = document.createElement("button");
-choicesOptionsElement.setAttribute("class", "btn btn-outline-primary mb-2");
-choicesOptionsElement.setAttribute("value", choice);
+  // Update the title with the current JavaScript question
+  var questiontitle = document.getElementById("question-title");
+  questiontitle.textContent = currentQuestion.title;
+  questiontitle.setAttribute("class", "text-center");
+  questiontitle.style.fontSize = "140%";
 
-choicesOptionsElement.textContent = choice;
+  // Hide any old question choices from the previous question
+  choicesOptions.innerHTML = "";
 
-// attach click event listener to each question choice
-choicesOptionsElement.onclick = questionClick;
+  // Loop over JavaScript question choices and create a button for each
+  currentQuestion.choices.forEach(function(choice) {
+    // Create a new button for each choice with bootstrap classes
+    var choicesOptionsElement = document.createElement("button");
+    choicesOptionsElement.setAttribute("class", "btn btn-outline-primary mb-2");
+    choicesOptionsElement.setAttribute("value", choice);
+    choicesOptionsElement.textContent = choice;
 
-// display the choices option for each question on the page
-choicesOptions.appendChild(choicesOptionsElement);
+    // Attach click event listener to each question choice
+    choicesOptionsElement.onclick = questionClick;
+
+    // Display the choices option for each question on the page
+    choicesOptions.appendChild(choicesOptionsElement);
   });
 }
 
+// Function to handle a click on a question choice
 function questionClick() {
-// check if user guessed the question wrong
-if (this.value !== questions[currentJavascriptQuestion].answer) {
-// penalize time
-time -= 10;
-  
-if (time < 0) {
-time = 0;
+  // Check if user guessed the question wrong
+  if (this.value !== questions[currentJavascriptQuestion].answer) {
+    // Penalize time for wrong answers
+    time -= 10;
+
+    // Prevent time from going below zero
+    if (time < 0) {
+      time = 0;
+    }
+
+    // Display the updated time on the page
+    timerClock.textContent = time;
+
+    // Show feedback that the answer was wrong in red
+    feedbackElement.textContent = "Wrong!";
+    feedbackElement.style.color = "red";
+    feedbackElement.style.fontSize = "200%";
+  } else {
+    // If the answer is correct, show feedback in green
+    feedbackElement.textContent = "Correct!";
+    feedbackElement.style.color = "green";
+    feedbackElement.style.fontSize = "200%";
+  }
+
+  // Flash right/wrong answer feedback
+  feedbackElement.setAttribute("class", "feedback");
+  setTimeout(function() {
+    feedbackElement.setAttribute("class", "feedback hide");
+  }, 600);
+
+  // Move to the next question
+  currentJavascriptQuestion++;
+
+  // Check if all questions are answered, if so, end the quiz
+  if (currentJavascriptQuestion === questions.length) {
+    quizEnd();
+  } else {
+    // Otherwise, load the next question
+    getQuestion();
+  }
 }
 
-// display new time on page
-timerClock.textContent = time;
-// if the question answered is wrong it will show red colour
-feedbackElement.textContent = "Wrong!";
-feedbackElement.style.color = "red";
-feedbackElement.style.fontSize = "200%";
-} else {
-// if the question answered is right it will show green colour
-feedbackElement.textContent = "Correct!";
-feedbackElement.style.color = "green";
-feedbackElement.style.fontSize = "200%";
- }
-  
-// flash right/wrong answer feedback
-feedbackElement.setAttribute("class", "feedback");
-setTimeout(function() {
- feedbackElement.setAttribute("class", "feedback hide");
-}, 600);
-  
-// next question shown on the screen
-currentJavascriptQuestion++;
-  
-// time checker
-if (currentJavascriptQuestion === questions.length) {
- quizEnd();
-} else {
-getQuestion();
-    }
-  }
- 
+// Function to end the quiz
 function quizEnd() {
-// stop the timer
-clearInterval(timerId);
-  
-// show the end screen
-var endScreenElement = document.getElementById("end-screen");
-endScreenElement.removeAttribute("class");
-  
-// show the user final score
-var finalScoreElement = document.getElementById("final-score");
-finalScoreElement.textContent = time;
-  
-// hide the JavaScript questions section
-javascriptQuestions.setAttribute("class", "hide");
-  }
-  
+  // Stop the timer
+  clearInterval(timerId);
+
+  // Show the end screen
+  var endScreenElement = document.getElementById("end-screen");
+  endScreenElement.removeAttribute("class");
+
+  // Show the user's final score
+  var finalScoreElement = document.getElementById("final-score");
+  finalScoreElement.textContent = time;
+
+  // Hide the JavaScript questions section
+  javascriptQuestions.setAttribute("class", "hide");
+}
+
+// Function to update the timer clock every second
 function clockTick() {
-// update time
-time--;
-timerClock.textContent = time;
-  
-// check if the user ran out of time
-if (time <= 0) {
-quizEnd();
+  // Decrease the time
+  time--;
+  timerClock.textContent = time;
+
+  // Check if the time is up and end the quiz
+  if (time <= 0) {
+    quizEnd();
+  }
 }
-}
-  
+
+// Function to save the user's highscore
 function saveHighscore() {
-// get value of input box
-var initials = initialsElement.value.trim();
-  
-if (initials !== "") {
-// get saved scores from localstorage, or if not any, set to empty array
-var highscores =
-JSON.parse(window.localStorage.getItem("highscores")) || [];
-  
-// format new score object for current user
-var newScore = {
- score: time,
-initials: initials
- };
-  
-// save scores to localstorage
-highscores.push(newScore);
-window.localStorage.setItem("highscores", JSON.stringify(highscores));
-  
-// redirect the user to next page
-window.location.href = "highscores.html";
+  // Get the initials entered by the user
+  var initials = initialsElement.value.trim();
+
+  // If initials are not empty, save the score
+  if (initials !== "") {
+    // Get saved scores from localStorage, or set to an empty array if none exist
+    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+    // Create a new score object for the user
+    var newScore = {
+      score: time,
+      initials: initials
+    };
+
+    // Save the new score to localStorage
+    highscores.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    // Redirect the user to the highscores page
+    window.location.href = "highscores.html";
+  }
 }
-}
-  
+
+// Function to check if the "Enter" key is pressed to submit the score
 function checkForEnter(event) {
-// "13" represents the enter key
-if (event.key === "Enter") {
- saveHighscore();
- }
+  // "13" represents the enter key
+  if (event.key === "Enter") {
+    saveHighscore();
+  }
 }
-  
-// submit initials
-submitButton.onclick = saveHighscore;
-  
-// start the JavaScript quiz
-startButton.onclick = startQuiz;
-  
+
+// Add event listeners for the submit button and starting the quiz
+submitButton.onclick = saveHighscore; // When the submit button is clicked, save the score
+startButton.onclick = startQuiz; // When the start button is clicked, start the quiz
+
+// Check for the Enter key press in the initials input field
 initialsElement.onkeyup = checkForEnter;

@@ -1,87 +1,103 @@
+/* Body styling */
 body {
-  font-family: Arial;
-  font-size: 120%;
+  font-family: Arial; /* Sets the font to Arial */
+  font-size: 120%; /* Sets the base font size to 120% of the default size */
 }
 
+/* Header 1 styling */
 h1{
-  text-align: center;
-  color: blueviolet;
+  text-align: center; /* Centers the text */
+  color: blueviolet; /* Sets the text color to blueviolet */
 }
 
+/* JavaScript quiz container styling */
 .javascript-quiz {
-  background-color: white;
+  background-color: white; /* Sets the background color of the quiz container */
 }
 
+/* General button styling */
 button {
-  display: inline-block;
-  margin: 5px;
-  cursor: pointer;
-  font-size: 100%;
-  background-color: red;
-  border-radius: 5px;
-  padding: 2px 10px;
-  color: white;
-  border: 0;
-  transition: background-color 0.1s;
+  display: inline-block; /* Makes buttons inline elements */
+  margin: 5px; /* Adds a small margin around buttons */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  font-size: 100%; /* Sets the font size to 100% of the default size */
+  background-color: red; /* Sets the background color to red */
+  border-radius: 5px; /* Rounds the corners of the button */
+  padding: 2px 10px; /* Adds padding inside the button */
+  color: white; /* Sets the text color inside the button to white */
+  border: 0; /* Removes the button border */
+  transition: background-color 0.1s; /* Adds a transition effect when changing background color */
 }
 
+/* Button hover effect */
 button:hover {
-  background-color: red;
+  background-color: red; /* Keeps the background color red on hover (no change) */
 }
 
+/* Button styling for choice options */
 .choices button {
-  display: block;
+  display: block; /* Makes each choice button a block element */
 }
 
+/* Input text field styling */
 input[type="text"] {
-  font-size: 100%;
+  font-size: 100%; /* Sets the font size to 100% of the default size */
 }
 
+/* Ordered list styling */
 ol {
-  padding-left: 0px;
-  max-height: 400px;
-  overflow: auto;
+  padding-left: 0px; /* Removes the left padding */
+  max-height: 400px; /* Limits the height of the list */
+  overflow: auto; /* Adds a scrollbar if the list overflows */
 }
 
+/* List item styling */
 li {
-  padding: 5px;
-  list-style: decimal inside none;
+  padding: 5px; /* Adds padding around list items */
+  list-style: decimal inside none; /* Removes default bullet points and adds numbers */
 }
 
+/* Odd list item background color */
 li:nth-child(odd) {
-  background-color: lightblue;
+  background-color: lightblue; /* Adds a light blue background color to odd list items */
 }
 
+/* Wrapper for centering the content */
 .wrapper {
-  margin: 100px auto 0 auto;
-  max-width: 600px;
+  margin: 100px auto 0 auto; /* Centers the wrapper with a top margin of 100px */
+  max-width: 600px; /* Limits the maximum width of the wrapper */
 }
 
+/* Hide elements with the 'hide' class */
 .hide {
-  display: none;
+  display: none; /* Hides elements with the 'hide' class */
 }
 
+/* Start screen text alignment */
 .start {
-  text-align: center;
+  text-align: center; /* Centers the text on the start screen */
 }
 
+/* Scores section styling */
 .scores {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  position: absolute; /* Positions the scores section absolutely */
+  top: 10px; /* Positions it 10px from the top */
+  left: 10px; /* Positions it 10px from the left */
 }
 
+/* Feedback section styling */
 .feedback {
-  font-style: italic;
-  font-size: 120%;
-  margin-top: 20px;
-  padding-top: 10px;
-  color: gray;
-  border-top: 2px solid #ccc;
+  font-style: italic; /* Makes the feedback text italic */
+  font-size: 120%; /* Sets the font size to 120% of the default size */
+  margin-top: 20px; /* Adds a 20px margin at the top */
+  padding-top: 10px; /* Adds padding to the top */
+  color: gray; /* Sets the text color to gray */
+  border-top: 2px solid #ccc; /* Adds a 2px solid gray border at the top */
 }
 
+/* Timer section styling */
 .timer {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  position: absolute; /* Positions the timer section absolutely */
+  top: 10px; /* Positions it 10px from the top */
+  right: 10px; /* Positions it 10px from the right */
 }

@@ -2,26 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!--Added meta viewport for mobile and monitor accessibility-->
+    <!-- Added meta viewport for mobile and monitor accessibility to ensure responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Highscores</title>
-   <!--CSS Stylesheet-->
+   
+    <!-- Custom CSS stylesheet for styling the page -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
 
   <body>
-    <!--Wrapper-->
+    <!-- Wrapper: Container for the content of the Highscores page -->
     <div class="wrapper">
-      <!--Highscores-->
+      <!-- Highscores Section -->
       <h1>Highscores</h1>
+      <!-- Ordered list for displaying the highscores dynamically -->
       <ol id="highscores"></ol>
-      <!--Go Back button to Index Page for the quiz-->
+
+      <!-- Go Back button to navigate back to the quiz index page -->
       <a href="index.html"><button>Go Back</button></a>
-      <!--Clear button for the quiz-->
+      
+      <!-- Clear button to clear the highscores -->
       <button id="clear">Clear Highscores</button>
     </div>
-    <!--JavaScript-->
+
+    <!-- JavaScript for handling score data and functionality -->
     <script src="./assets/js/scores.js"></script>
   </body>
 </html>
